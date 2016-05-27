@@ -20,7 +20,7 @@ module.exports = function(config) {
                 "key": "V1001_GOOD"
             }]
         }]
-    };
+    }
     var token = require('./token.js');
     token(config)
         .then(function(data) {

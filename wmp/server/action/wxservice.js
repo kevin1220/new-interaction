@@ -1,18 +1,23 @@
 //用到的模块
 var wechat = require('wechat');
+// var wechat = require('../model/wechat.js');
 var menu = require('../model/menu.js');
 
 //应用信息的配置
+//测试帐号
+// var appid = 'wx2fb3bedb2b468477';
+// var secret = '617917dc8ff556b69257269d522d1ae3';
+
 //启航
-var appid = 'wx1120ac5acbe9b01f';
-var secret = '73a1d0b075c94c8a7028876878da29a5';
-var encodingAESKey = 'uTP78PuIKKDCIFoqfogdQ0WPB9f7vhYA1nBjh9KeoGu';
-var token = 'fogdQ0WPB9f7vhYA1nB';
+// var appid = 'wx1120ac5acbe9b01f';
+// var secret = '73a1d0b075c94c8a7028876878da29a5';
+// var encodingAESKey = 'uTP78PuIKKDCIFoqfogdQ0WPB9f7vhYA1nBjh9KeoGu';
+// var token = 'fogdQ0WPB9f7vhYA1nB';
 //广州智讯互动
-// var appid = 'wx43233b4496331a8a';
-// var secret = 'c61c11c4c6170e4eaa554d9d147969b9';
-// var encodingAESKey = '9nP01akXX3JhzIn71Focr8mSaGoVVrxgAwDikDiiycM';
-// var token = '3JhzIn71Focr8mSaGo';
+var appid = 'wx43233b4496331a8a';
+var secret = 'c61c11c4c6170e4eaa554d9d147969b9';
+var encodingAESKey = '9nP01akXX3JhzIn71Focr8mSaGoVVrxgAwDikDiiycM';
+var token = '3JhzIn71Focr8mSaGo';
 
 
 var domainName = 'http://www.wit-orange.com';
@@ -23,20 +28,20 @@ var config = {
     encodingAESKey: encodingAESKey
 };
 
-//创建自定义菜单
-menu(config, function() {});
+
+
+
 
 module.exports.get = function(req, res, next) {
-
-    console.log('接入mp')
-        /*****************************公众平台接入******************************/
-
+    //创建自定义菜单
+    menu(config, function() {});
+    /*****************************公众平台接入******************************/
+    // wechat(config)(req,res,next);
     wechat(config, function() {})(req, res, next);
 
 }
 module.exports.post = function(req, res, next) {
-
-    //配置回复信息
+    // //配置回复信息
     wechat(config, function() {
         // 微信输入信息都在req.weixin上
         var message = req.weixin;
@@ -72,7 +77,7 @@ module.exports.post = function(req, res, next) {
             }]);
         }
 
-    })(req,res,next);
+    })(req, res, next);
 
 
 }

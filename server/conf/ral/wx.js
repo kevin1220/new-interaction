@@ -5,7 +5,7 @@ module.exports.wxtoken = {
     rejectUnauthorized: false, // 设置不进行SSL验证,
     pack: 'querystring', // 数据封装为query
     unpack: 'json', // 约定服务端返回JSON数据
-    encoding: 'utf-8', // 服务器返回utf-8编码
+    encoding: 'gbk', // 服务器返回utf-8编码
     // 负载均衡与超时重试配置
     balance: 'roundrobin', // 负载均衡策略
     timeout: 500, // 请求最长超时时间500ms
